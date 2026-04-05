@@ -1,0 +1,15 @@
+class MaxProductSubarrayNegative {
+    public static void main(String[] args) {
+        int[] a = {1,2,-3,0,-4,-5};
+        int n = a.length;
+        int pre = 1;
+        int suff = 1;
+        int ans = Integer.MIN_VALUE;
+        for(int i=0;i<n;i++) {
+            pre *= a[i];
+            suff *= a[n-i-1];
+            ans = Math.max(ans,Math.max(pre,suff));
+        }
+        System.out.println("The maximum product of a subarray: "+ans);
+    }
+}
